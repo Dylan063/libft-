@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 15:15:18 by dravaono          #+#    #+#             */
-/*   Updated: 2023/03/28 16:17:51 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/03/31 12:01:40 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_isdigit(int c)
 {
-	return (c >= 0 && c <= 9);
+	return (c >= '0' && c <= '9');
 }
 /*int	main(void)
 {

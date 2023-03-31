@@ -6,7 +6,7 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:46:25 by dravaono          #+#    #+#             */
-/*   Updated: 2023/03/28 16:17:26 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/03/31 11:53:45 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_isalpha(int c)
 {
-	return (c >= 'a' && c <= 'z'
-	|| c >= 'A' && c <= 'Z');
+	return ((c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'));
 }
 /*int	main(void)
 {

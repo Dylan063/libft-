@@ -6,13 +6,13 @@
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 16:10:48 by dravaono          #+#    #+#             */
-/*   Updated: 2023/03/29 18:57:13 by dravaono         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:32:44 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	int	i;
 
