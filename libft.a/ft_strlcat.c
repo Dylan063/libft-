@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 14:26:49 by dravaono          #+#    #+#             */
-/*   Updated: 2023/04/02 19:19:32 by dravaono         ###   ########.fr       */
+/*   Created: 2023/04/02 16:53:26 by dravaono          #+#    #+#             */
+/*   Updated: 2023/04/03 14:44:50 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
+	size_t	j;
+	size_t	srclen;
 
+	j = ft_strlen(dst);
+	srclen = ft_strlen(src);
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	if (size <= j)
 	{
-		if (s1[i] > s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
-		else if (s1[i] < s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
-		i++;
+		return (size + srclen);
 	}
-	return (0);
+	while (src[i] && j + 1 < size)
+	{
+		dst[j] = src[i];
+		i++;
+		j++;
+	}
+	dst[j] = '\0';
+	return (ft_strlen(src + i) + j);
 }
-/*int	main(void)
+
+/*int main()
 {
-	char	s1[] = "boniour";
-	char	s2[] = "bonjour";
-	printf("%d",ft_strncmp(s1, s2, 4));
+	char dst[7] = "je";
+	char src[] = "suis";
+	
+	printf("%d\n", ft_strlcat(dst, src, 7));
+	printf("%s\n", dst);
 }*/

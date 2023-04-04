@@ -1,39 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 14:26:49 by dravaono          #+#    #+#             */
-/*   Updated: 2023/04/02 19:19:32 by dravaono         ###   ########.fr       */
+/*   Created: 2023/04/02 19:02:22 by dravaono          #+#    #+#             */
+/*   Updated: 2023/04/04 14:51:09 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	i;
+	char	*str;
 
+	if (!s)
+		return (NULL);
+	if ((size_t)start > ft_strlen(s))
+		return (ft_strdup(""));
+	if (ft_strlen(s + start) < len)
+		len = ft_strlen(s + start);
+	str = malloc(sizeof(char) * (len + 1));
 	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	if (!str)
+		return (0);
+	while (s[i + start] && i < len)
 	{
-		if (s1[i] > s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
-		else if (s1[i] < s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
+		str[i] = s[i + start];
 		i++;
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }
-/*int	main(void)
-{
-	char	s1[] = "boniour";
-	char	s2[] = "bonjour";
-	printf("%d",ft_strncmp(s1, s2, 4));
-}*/

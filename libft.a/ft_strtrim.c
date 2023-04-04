@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dravaono <dravaono@student42nice.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/27 14:26:49 by dravaono          #+#    #+#             */
-/*   Updated: 2023/04/02 19:19:32 by dravaono         ###   ########.fr       */
+/*   Created: 2023/04/03 16:49:37 by dravaono          #+#    #+#             */
+/*   Updated: 2023/04/04 15:57:23 by dravaono         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
+	size_t	start;
+	size_t	len;
+	char	*str;
 
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && i < n)
+	if (!s1)
+		return (0);
+	if (!set)
+		return ((char *)s1);
+	start = 0;
+	len = ft_strlen(s1);
+	while (ft_strchr(set, s1[start]) && s1[start])
+		start++;
+	if (start == ft_strlen(s1))
 	{
-		if (s1[i] > s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
-		else if (s1[i] < s2[i])
-		{
-			return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-		}
-		i++;
+		str = ft_strdup("");
+		return (str);
 	}
-	return (0);
+	while (ft_strchr(set, s1[len - 1]) && len > start)
+		len--;
+	str = ft_substr(s1, start, len - start);
+	return (str);
 }
-/*int	main(void)
-{
-	char	s1[] = "boniour";
-	char	s2[] = "bonjour";
-	printf("%d",ft_strncmp(s1, s2, 4));
-}*/
